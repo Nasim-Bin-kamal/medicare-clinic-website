@@ -1,10 +1,10 @@
 import React from 'react';
-import Menubar from '../MenuBar/Menubar';
+import MenuBar from '../MenuBar/MenuBar';
 
 const Header = () => {
     return (
         <div>
-            <Menubar />
+            <MenuBar />
         </div>
     );
 };

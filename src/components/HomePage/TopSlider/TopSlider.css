@@ -1,0 +1,49 @@
+@media screen and (max-width: 576px) {
+  .carousel img {
+    height: 200px;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+  }
+  .desc {
+    margin-top: 100px;
+    color: rgb(32, 29, 29);
+    line-height: normal;
+  }
+  .banner-title {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .carousel img {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    box-sizing: border-box;
+    filter: blur(1x);
+    -webkit-filter: blur(2px);
+  }
+  .desc {
+    margin: 100px 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .carousel img {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    box-sizing: border-box;
+    filter: blur(1x);
+    -webkit-filter: blur(3px);
+  }
+  .desc {
+    margin: 150px 0;
+  }
+  .banner-title {
+    font-size: 60px;
+    color: rgba(17, 13, 51, 0.678);
+  }
+}
