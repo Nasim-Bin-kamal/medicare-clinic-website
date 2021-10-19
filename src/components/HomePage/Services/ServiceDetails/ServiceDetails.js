@@ -7,7 +7,7 @@ const ServiceDetails = () => {
     const { serviceId } = useParams();
     const history = useHistory();
     const [services] = useServices([]);
-    const service = services?.find(service => service.id === serviceId);
+    const service = services?.find(service => service.id === serviceId) || {};
 
     const handleBackToServices = () => {
         history.push('/home');

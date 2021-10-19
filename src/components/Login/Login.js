@@ -7,18 +7,68 @@ import image from '../../utilities/images/login-register.jpg'
 
 
 const Login = () => {
-    const { handleUserSignIn, handleEmailChange, handlePasswordChange, handleFacebookSignIn, handleGithubSignIn, handleGoogleSignIn, handleTwitterSignIn, errorMsg } = useAuth();
+    const { singInProcess, password, setUser, handleEmailChange, handlePasswordChange, handleFacebookSignIn, setErrorMsg, setLoading, handleGithubSignIn, handleGoogleSignIn, handleTwitterSignIn, errorMsg } = useAuth();
 
     const location = useLocation();
-    const redirectUrl = location.state?.from || "/shop";
-    console.log('came from', redirectUrl);
+    const redirectUrl = location.state?.from || "/home";
     const history = useHistory();
+
+    //sign in with email and password by login button
+    const handleUserSignIn = (e) => {
+        e.preventDefault();
+        if (password.length < 6) {
+            setErrorMsg('Password Must be 6 character long');
+            return;
+        }
+        else if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+            setErrorMsg('Password must contain at least 2 uppercase letter');
+            return;
+        }
+        singInProcess()
+            .then(result => {
+                //signed in.
+                history.push(redirectUrl);
+                setUser(result?.user);
+                setErrorMsg('');
+            }).catch(error => {
+                setErrorMsg(error?.message);
+            }).finally(() => setLoading(false));
+    }
 
     const googleSignIn = () => {
         handleGoogleSignIn()
             .then(result => {
                 history.push(redirectUrl);
-            });
+            }).catch(error => {
+                setErrorMsg(error.message);
+            }).finally(() => setLoading(false));
+
+    }
+    const facebookSignIn = () => {
+        handleFacebookSignIn()
+            .then(result => {
+                history.push(redirectUrl);
+            }).catch(error => {
+                setErrorMsg(error.message);
+            }).finally(() => setLoading(false));
+
+    }
+    const githubSignIn = () => {
+        handleGithubSignIn()
+            .then(result => {
+                history.push(redirectUrl);
+            }).catch(error => {
+                setErrorMsg(error.message);
+            }).finally(() => setLoading(false));
+
+    }
+    const twitterSignIn = () => {
+        handleTwitterSignIn()
+            .then(result => {
+                history.push(redirectUrl);
+            }).catch(error => {
+                setErrorMsg(error.message);
+            }).finally(() => setLoading(false));
 
     }
 
@@ -32,9 +82,7 @@ const Login = () => {
                             onSubmit={handleUserSignIn}
                             className="w-75 mx-auto border rounded-3 my-5 p-2 shadow-sm">
                             <h3 className="text-center mx-auto mb-4">Please Log In First</h3>
-                            {/* <Form.Group className="mb-3 " controlId="formBasicText">
-                                <Form.Control type="text" placeholder="Full Name" />
-                            </Form.Group> */}
+
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Control
                                     onBlur={handleEmailChange}
@@ -57,10 +105,10 @@ const Login = () => {
                             </Button>
                             <p className="text-center my-3 mx-auto texti-muted "><small>Or Login With</small></p>
                             <div className="d-flex align-content-center justify-content-center">
-                                <i onClick={handleFacebookSignIn} className="fab fa-facebook mx-2  mb-3 fs-3"></i>
+                                <i onClick={facebookSignIn} className="fab fa-facebook mx-2  mb-3 fs-3"></i>
                                 <i onClick={googleSignIn} className="fab fa-google mx-2  mb-3 fs-3"></i>
-                                <i onClick={handleGithubSignIn} className="fab fa-github mx-2  mb-3 fs-3"></i>
-                                <i onClick={handleTwitterSignIn} className="twitter-logo fab fa-twitter  mx-2  mb-3 fs-3"></i>
+                                <i onClick={githubSignIn} className="fab fa-github mx-2  mb-3 fs-3"></i>
+                                <i onClick={twitterSignIn} className="twitter-logo fab fa-twitter  mx-2  mb-3 fs-3"></i>
                             </div>
 
                             <div className="text-center mx-auto my-3">

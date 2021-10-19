@@ -1,10 +1,12 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import logo from '../../../utilities/images/logo.png';
 import './MenuBar.css';
 
 const MenuBar = () => {
+    const { user, handleSignOut } = useAuth();
     const activeStyle = {
         color: "white",
         fontWeight: "700"
@@ -26,7 +28,16 @@ const MenuBar = () => {
                         </Nav>
                         <Nav>
                             <NavLink activeStyle={activeStyle} className="mx-2 text-decoration-none fw-bold" to="/register">Register</NavLink>
-                            <NavLink activeStyle={activeStyle} className="mx-2 text-decoration-none fw-bold" to="/login">Login</NavLink>
+                            {
+                                !user?.email ? <NavLink activeStyle={activeStyle} className="mx-2 text-decoration-none fw-bold" to="/login">Login</NavLink>
+                                    :
+                                    <div className="mx-3 d-flex align-items-center justify-content-center">
+                                        <img className="rounded-circle mx-2" src={user?.photoURL} alt="" style={{ width: '40px' }} />
+                                        <span>{user?.displayName}</span>
+                                        <Button onClick={handleSignOut} className="mx-2 px-3 rounded-pill" variant="danger" size="sm">Log Out</Button>
+                                    </div>
+                            }
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

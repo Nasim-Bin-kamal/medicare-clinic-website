@@ -7,6 +7,7 @@ import Home from './components/HomePage/Home/Home';
 import ServiceDetails from './components/HomePage/Services/ServiceDetails/ServiceDetails';
 import Login from './components/Login/Login';
 import NotFound from './components/NotFound/NotFound';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Register from './components/Register/Register';
 import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
@@ -28,12 +29,12 @@ function App() {
             <Route path="/about">
               <About />
             </Route>
-            <Route path="/doctors">
+            <PrivateRoute path="/doctors">
               <Doctors />
-            </Route>
-            <Route path="/service/:serviceId">
+            </PrivateRoute>
+            <PrivateRoute path="/service/:serviceId">
               <ServiceDetails />
-            </Route>
+            </PrivateRoute>
             <Route path="/login">
               <Login />
             </Route>

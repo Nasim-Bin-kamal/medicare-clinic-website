@@ -21,6 +21,7 @@ const useFirebase = () => {
     const [password, setPassword] = useState('');
 
     const [errorMsg, setErrorMsg] = useState('');
+    const [loading, setLoading] = useState(true);
 
     // handle new user register by register button
     const handleUserRegister = (e) => {
@@ -33,12 +34,12 @@ const useFirebase = () => {
             setErrorMsg('Password must contain at least 2 uppercase letter');
             return;
         }
-        newUserRegister(email, password);
+        newUserRegister();
 
     }
 
     //implement new user registration
-    const newUserRegister = (email, password) => {
+    const newUserRegister = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result?.user);
@@ -69,52 +70,40 @@ const useFirebase = () => {
     }
 
 
-    //sign in with email and password by login button
-    const handleUserSignIn = (e) => {
-        e.preventDefault();
-        if (password.length < 6) {
-            setErrorMsg('Password Must be 6 character long');
-            return;
-        }
-        else if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setErrorMsg('Password must contain at least 2 uppercase letter');
-            return;
-        }
-        singInProcess(email, password);
-    }
+
 
 
     //sign in implementation
-    const singInProcess = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                //signed in.
-                setUser(result?.user);
-                setErrorMsg('');
-            }).catch(error => {
-                setErrorMsg(error?.message);
-            });
+    const singInProcess = () => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+
     }
 
     //trace the user state
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, user => {
+        const unsubscribed = onAuthStateChanged(auth, user => {
             if (user) {
-                setUser(user)
+                setUser(user);
             }
-        })
-        return unsubscribe;
+            else {
+                setUser({});
+            }
+            setLoading(false);
+        });
+        return () => unsubscribed;
     }, []);
 
     //implement sign out 
     const handleSignOut = () => {
+        setLoading(true);
         signOut(auth).then(() => {
             // Sign-out successful.
             setUser({});
         }).catch((error) => {
             // An error happened.
             console.log(error);
-        });
+        }).finally(() => setLoading(false));
 
     }
 
@@ -131,43 +120,33 @@ const useFirebase = () => {
 
     //sign in with facebook
     const handleFacebookSignIn = () => {
-        signInWithPopup(auth, facebookProvider)
-            .then(result => {
-                setUser(result?.user);
-            }).then(error => {
-                setErrorMsg(error?.message);
-            });
+        setLoading(true);
+        return signInWithPopup(auth, facebookProvider);
+
     }
     // sign in with google
     const handleGoogleSignIn = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider);
 
     }
 
     //sign in with github
     const handleGithubSignIn = () => {
-        signInWithPopup(auth, githubProvider)
-            .then(result => {
-                setUser(result.user);
-            })
-            .catch(error => {
-                setErrorMsg(error.message);
-            });
+        setLoading(true);
+        return signInWithPopup(auth, githubProvider);
+
     }
 
     //sign in with twitter
     const handleTwitterSignIn = () => {
-        signInWithPopup(auth, twitterProvider)
-            .then(result => {
-                setUser(result.user);
-            })
-            .catch(error => {
-                setErrorMsg(error.message);
-            });
+        setLoading(true);
+        return signInWithPopup(auth, twitterProvider);
+
     }
 
     return {
-        handleUserSignIn,
+        singInProcess,
         handleSignOut,
         handleNameChange,
         handleEmailChange,
@@ -177,6 +156,11 @@ const useFirebase = () => {
         handleGoogleSignIn,
         handleTwitterSignIn,
         handleFacebookSignIn,
+        setErrorMsg,
+        setLoading,
+        setUser,
+        loading,
+        password,
         user,
         errorMsg
     }
