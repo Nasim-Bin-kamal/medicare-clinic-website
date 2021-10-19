@@ -15,7 +15,7 @@ const TopSlider = () => {
                     <Carousel.Caption className="desc">
                         <h1 className="banner-title">Qualified Expert Doctors</h1>
                         <p className="text-dark">Our doctors are specialized in all the areas.</p>
-                        <Button variant="primary px-4 rounded-pill">Read More <i class="fas fa-plus"></i></Button>
+                        <Button className="btn-standard border-0 py-2" variant="primary px-4 rounded-pill">Read More <i className="fas fa-plus"></i></Button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -29,7 +29,7 @@ const TopSlider = () => {
                     <Carousel.Caption className="desc">
                         <h1 className="banner-title">Modern Diagnostic</h1>
                         <p className="text-dark">All kinds of diagnostic equipment are availabe.</p>
-                        <Button variant="primary px-4 rounded-pill">Read More <i class="fas fa-plus"></i></Button>
+                        <Button className="btn-standard border-0 py-2" variant="primary px-4 rounded-pill">Read More <i className="fas fa-plus"></i></Button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -43,7 +43,7 @@ const TopSlider = () => {
                         <h1 className="banner-title">The Heights Standards</h1>
                         <p className="text-dark">Maintain heights standard technologies for patients.</p>
                         <div>
-                            <Button variant="primary px-4 rounded-pill">Read More <i class="fas fa-plus"></i></Button>
+                            <Button className="btn-standard border-0 py-2" variant="primary px-4 rounded-pill">Read More <i className="fas fa-plus"></i></Button>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>

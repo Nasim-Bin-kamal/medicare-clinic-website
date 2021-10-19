@@ -60,7 +60,7 @@ const Login = () => {
                                 <i onClick={handleFacebookSignIn} className="fab fa-facebook mx-2  mb-3 fs-3"></i>
                                 <i onClick={googleSignIn} className="fab fa-google mx-2  mb-3 fs-3"></i>
                                 <i onClick={handleGithubSignIn} className="fab fa-github mx-2  mb-3 fs-3"></i>
-                                <i onClick={handleTwitterSignIn} className="fab fa-twitter  mx-2  mb-3 fs-3"></i>
+                                <i onClick={handleTwitterSignIn} className="twitter-logo fab fa-twitter  mx-2  mb-3 fs-3"></i>
                             </div>
 
                             <div className="text-center mx-auto my-3">

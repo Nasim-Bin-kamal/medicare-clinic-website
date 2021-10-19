@@ -1,0 +1,8 @@
+.doctor {
+  overflow: hidden;
+}
+.doctor-image:hover {
+  transform: scale(1.1);
+  transition: transform 1s ease-out;
+  overflow: inherit;
+}

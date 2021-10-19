@@ -54,7 +54,7 @@ const Register = () => {
                                 <i className="fab fa-facebook mx-2  mb-3 fs-3"></i>
                                 <i className="fab fa-google mx-2  mb-3 fs-3"></i>
                                 <i className="fab fa-github mx-2  mb-3 fs-3"></i>
-                                <i className="fab fa-twitter  mx-2  mb-3 fs-3"></i>
+                                <i className="twitter-logo fab fa-twitter  mx-2  mb-3 fs-3"></i>
                             </div>
 
                             <div className="text-center mx-auto my-3">

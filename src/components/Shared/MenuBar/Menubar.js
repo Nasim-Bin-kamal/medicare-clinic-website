@@ -20,7 +20,8 @@ const MenuBar = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <NavLink activeStyle={activeStyle} className="mx-2 text-decoration-none fw-bold" to="/home">Home</NavLink>
-                            <NavLink activeStyle={activeStyle} className="mx-2 text-decoration-none fw-bold" to="/about">About</NavLink>
+                            <NavLink activeStyle={activeStyle} className="mx-2 text-decoration-none fw-bold" to="/about">About Us</NavLink>
+                            <NavLink activeStyle={activeStyle} className="mx-2 text-decoration-none fw-bold" to="/doctors">Doctors</NavLink>
 
                         </Nav>
                         <Nav>

@@ -1,0 +1,74 @@
+[
+    {
+       "id":"1001",
+       "name":"Bronchoscopy",
+       "image":"https://i.ibb.co/b50LkGJ/asset-2.jpg",
+       "desc":"Bronchoscopy is an endoscopic technique of visualizing the inside of the airways for diagnostic and therapeutic purposes. An instrument is inserted into the airways, usually through the nose or mouth, or occasionally through a tracheostomy"
+    },
+    {
+       "id":"1002",
+       "name":"Captopril Renography",
+       "image":"https://i.ibb.co/8P8sswP/asset-23.jpg",
+       "desc":"Captopril renal scintigraphy (CRS) is a nuclear medicine technique for evaluating each kidney independently for changes in glomerular filtration rate and perfusion induced by captopril-associated alterations in vascular tone."
+    },
+    {
+       "id":"1003",
+       "name":"Orthotics",
+       "image":"https://i.ibb.co/h95fMWb/asset-4.jpg",
+       "desc":"Orthotics are different. They are prescription medical devices that you wear inside your shoes to correct biomechanical foot issues such as problems with how you walk, stand, or run. They can also help with foot pain caused by medical conditions such as diabetes, plantar fasciitis, bursitis, and arthritis."
+    },
+    {
+       "id":"1004",
+       "name":"Blood Tests",
+       "image":"https://i.ibb.co/TvBKj6R/asset-15.jpg",
+       "desc":"A blood test is a laboratory analysis performed on a blood sample that is usually extracted from a vein in the arm using a hypodermic needle, or via fingerprick."
+    },
+    {
+       "id":"1005",
+       "name":"Full Body MRI Scan",
+       "image":"https://i.ibb.co/M1vSnrm/asset-12.jpg",
+       "desc":"A whole-body MRI scan looks at the body from head to toe in order to find cancers, inflammation or obstructive processes in the body. In the head, the exam can show brain masses, shrinkage, old strokes, the sinuses and nasal cavities."
+    },
+    {
+       "id":"1006",
+       "name":"Healthy Teeth",
+       "image":"https://i.ibb.co/pjzHC4N/asset-9.jpg",
+       "desc":"Firm, Pink Gums and Dental Tissue. You might spend so much time thinking about your teeth that you forget to pay attention to your gums.Sturdy Teeth and Dental RestorationsNeutral-Smelling Breath.No Blood When Brushing or Flossing."
+    },
+    {
+       "id":"1007",
+       "name":"CT Scan",
+       "image":"https://i.ibb.co/12y4jLL/asset-6.jpg",
+       "desc":"A CT scan uses X-rays and computers to produce images of a cross-section of your body. It takes pictures that show very thin “slices” of your bones, muscles, organs and blood vessels so that healthcare providers can see your body in great detail."
+    },
+    {
+       "id":"1008",
+       "name":"Amniocentesis",
+       "image":"https://i.ibb.co/8P8sswP/asset-23.jpg",
+       "desc":"Amniocentesis is a medical procedure used primarily in prenatal diagnosis of chromosomal abnormalities and fetal infections as well as for sex determination. In this procedure, a small amount of amniotic fluid, which contains fetal tissues, is sampled from the amniotic sac surrounding a developing fetus."
+    },
+    {
+       "id":"1009",
+       "name":"Kidney Test",
+       "image":"https://i.ibb.co/LpYxkvX/asset-5.jpg",
+       "desc":"The normal value for GFR is 90 or above. A GFR below 60 is a sign that the kidneys are not working properly. Once the GFR decreases below 15, one is at high risk for needing treatment for kidney failure, such as dialysis or a kidney transplant."
+    },
+    {
+       "id":"1010",
+       "name":"Test Analysis",
+       "image":"https://i.ibb.co/TThR43z/asset-14.jpg",
+       "desc":"A medical test is a medical procedure performed to detect, diagnose, or monitor diseases, disease processes, susceptibility, or to determine a course of treatment. Medical tests such as, physical and visual exams, diagnostic imaging, genetic testing, chemical and cellular analysis, relating to clinical chemistry and molecular diagnostics, are typically performed in a medical setting."
+    },
+    {
+       "id":"1011",
+       "name":"Non-invasive",
+       "image":"https://i.ibb.co/YZpw5YJ/asset-13.jpg",
+       "desc":"A medical procedure is defined as non-invasive when no break in the skin is created and there is no contact with the mucosa, or skin break, or internal body cavity beyond a natural or artificial body orifice. For example, deep palpation and percussion are non-invasive but a rectal examination is invasive."
+    },
+    {
+       "id":"1012",
+       "name":"Parathyroid Scan",
+       "image":"https://i.ibb.co/YZpw5YJ/asset-13.jpg",
+       "desc":"A parathyroid scan uses a radioactive compound which gives off gamma rays, called a radiotracer, to diagnose and localize parathyroid adenoma. You will be given a small dose of radiotracer through an intravenous (IV). A gamma camera is used to detect the rays and produces images of parathyroid tissue."
+    }
+ ]
