@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import './SingleService.css'
 
 const SingleService = ({ service }) => {
-    const { id, name, image } = service || {};
+    const { id, name, image, desc } = service || {};
     const history = useHistory();
     const handleServiceDetails = () => {
         history.push(`/service/${id}`);
@@ -16,8 +16,9 @@ const SingleService = ({ service }) => {
             <Col className="m-2 p-2 border-dark border-3 rounded-3 shadow-lg">
                 <Card className="service" style={{ width: '100%' }}>
                     <Card.Img className="service-image" variant="top" src={image} />
-                    <Card.Body className="text-center">
-                        <Card.Title>{name}</Card.Title>
+                    <Card.Body >
+                        <Card.Title className="text-center">{name}</Card.Title>
+                        <small><b>Description:</b>{desc.slice(0, 100)}.</small>
                     </Card.Body>
                     <Button
                         onClick={handleServiceDetails}

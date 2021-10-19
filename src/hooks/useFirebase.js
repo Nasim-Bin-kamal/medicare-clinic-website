@@ -46,6 +46,7 @@ const useFirebase = () => {
                 setErrorMsg('');
                 verifyEmail();
                 setUserName();
+                window.location.reload();
             }).catch(error => {
                 setErrorMsg(error.message);
             });
