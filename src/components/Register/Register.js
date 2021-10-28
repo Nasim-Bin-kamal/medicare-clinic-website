@@ -1,15 +1,41 @@
 import React from 'react';
 import './Register.css'
 import { Col, Form, Row, Button, Container } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import image from '../../utilities/images/login-register.jpg';
 
 
 const Register = () => {
-    const { handleUserRegister, handleNameChange, handleEmailChange, handlePasswordChange, errorMsg } = useAuth();
+    const { newUserRegister, setErrorMsg, setUser, setLoading, setUserName, password, verifyEmail, handleNameChange, handleEmailChange, handlePasswordChange, errorMsg } = useAuth();
 
+    const location = useLocation();
+    const redirectUrl = location.state?.from || "/home";
+    const history = useHistory();
 
+    // handle new user register by register button
+    const handleUserRegister = (e) => {
+        e.preventDefault();
+        if (password.length < 6) {
+            setErrorMsg('Password Must be 6 character long');
+            return;
+        }
+        else if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+            setErrorMsg('Password must contain at least 2 uppercase letter');
+            return;
+        }
+        newUserRegister()
+            .then(result => {
+                history.push(redirectUrl);
+                setUserName();
+                setUser(result?.user);
+                setErrorMsg('');
+                verifyEmail();
+            }).catch(error => {
+                setErrorMsg(error.message);
+            }).finally(() => setLoading(false));
+
+    }
 
     return (
         <Container>

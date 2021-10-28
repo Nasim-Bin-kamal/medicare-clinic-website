@@ -23,40 +23,20 @@ const useFirebase = () => {
     const [errorMsg, setErrorMsg] = useState('');
     const [loading, setLoading] = useState(true);
 
-    // handle new user register by register button
-    const handleUserRegister = (e) => {
-        e.preventDefault();
-        if (password.length < 6) {
-            setErrorMsg('Password Must be 6 character long');
-            return;
-        }
-        else if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setErrorMsg('Password must contain at least 2 uppercase letter');
-            return;
-        }
-        newUserRegister();
-
-    }
-
     //implement new user registration
     const newUserRegister = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                setUser(result?.user);
-                setErrorMsg('');
-                verifyEmail();
-                setUserName();
-                window.location.reload();
-            }).catch(error => {
-                setErrorMsg(error.message);
-            });
+        setLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password);
+
     }
     //user name set
     const setUserName = () => {
         updateProfile(auth.currentUser, {
             displayName: name
         }).then(() => {
-            //profile updated
+            // const newUser = { ...user, displayName: name };
+            // setUser(newUser);
+            window.location.reload();
         }).catch(error => {
             setErrorMsg(error.message);
         });
@@ -147,12 +127,14 @@ const useFirebase = () => {
     }
 
     return {
+        newUserRegister,
+        setUserName,
+        verifyEmail,
         singInProcess,
         handleSignOut,
         handleNameChange,
         handleEmailChange,
         handlePasswordChange,
-        handleUserRegister,
         handleGithubSignIn,
         handleGoogleSignIn,
         handleTwitterSignIn,
@@ -164,6 +146,7 @@ const useFirebase = () => {
         password,
         user,
         errorMsg
+
     }
 
 
